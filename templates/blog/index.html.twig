@@ -1,17 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
+{% block title %}Blog Jstore!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    <div class="id">{{ id }}</div>
-    <div class="id">{{ name }}</div>
-</div>
+  <div class="articles">
+    {% for article in articles %}
+      <div class="article-item">
+        <div class="article-image">
+          <img src="{{ article.imageUrl }}" width="300" alt="Image de l'article : {{ article.title }}">
+        </div>
+        <div class="article-details">
+          <div class="article-author-details">
+            <img class="article-author-picture" src="{{ article.author.profile.picture }}" width="50" alt="Image de profil de {{ article.author.username }}"/>
+          </div>
+          <div class="article-content-details">
+            <h2 class="article-title">{{ article.title }}</h2>
+            <div class="article-createdAt">{{ article.createdAt | date("d/m/Y") }}</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
