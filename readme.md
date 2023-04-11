@@ -1,4 +1,5 @@
 # Cours Symfony 6
+/!\ Cours abandonné car dernier projet uniquement en Symfony 5 /!\
 
 ## Bases
 ```php
